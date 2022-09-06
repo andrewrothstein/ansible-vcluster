@@ -2,3 +2,9 @@
 - hosts: all
   roles:
   - role: '{{ playbook_dir }}'
+  tasks:
+  - command: /usr/local/bin/vcluster --version
+    register: vcluster_test_output
+  - name: vcluster --version
+    debug:
+      msg: '{{ vcluster_test_output.stdout }}'
