@@ -1,0 +1,26 @@
+---
+- name: resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      skip: true
+      paths:
+        - '{{ role_path }}/vars'
+- name: downloading {{ vcluster_url }} to {{ vcluster_install_exe }}
+  become: true
+  become_user: root
+  get_url:
+    url: '{{ vcluster_url }}'
+    dest: '{{ vcluster_install_exe }}'
+    checksum: '{{ vcluster_checksum }}'
+    mode: 0755
+- name: linking {{ vluster_link }} to {{ vcluster_install_exe }}
+  become: true
+  become_user: root
+  file:
+    src: '{{ vcluster_install_exe }}'
+    dest: '{{ vcluster_link }}'
+    state: link

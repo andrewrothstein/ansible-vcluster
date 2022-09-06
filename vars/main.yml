@@ -1,0 +1,7 @@
+---
+# vars file for vcluster
+vcluster_platform: '{{ vcluster_os }}-{{ vcluster_arch }}'
+vcluster_url: '{{ vcluster_mirror }}/v{{ vcluster_ver }}/vcluster-{{ vcluster_platform }}{{ vcluster_dotexe | default("") }}'
+vcluster_checksum: '{{ vcluster_checksums[vcluster_ver][vcluster_platform] }}'
+vcluster_install_exe: '{{ vcluster_install_dir }}/vcluster-{{ vcluster_ver }}-{{ vcluster_platform }}{{ vcluster_dotexe | default("") }}'
+vcluster_link: '{{ vcluster_install_dir }}/vcluster'
