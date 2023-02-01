@@ -29,4 +29,4 @@ dl_ver() {
     dl $ver windows 386 .exe
 }
 
-dl_ver ${1:-0.11.2}
+dl_ver ${1:-0.14.0}

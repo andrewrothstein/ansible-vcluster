@@ -17,7 +17,7 @@
     dest: '{{ vcluster_install_exe }}'
     checksum: '{{ vcluster_checksum }}'
     mode: 0755
-- name: linking {{ vluster_link }} to {{ vcluster_install_exe }}
+- name: linking {{ vcluster_link }} to {{ vcluster_install_exe }}
   become: true
   become_user: root
   file:

@@ -1,5 +1,7 @@
 ---
 # vars file for vcluster
+vcluster_os: '{{ ansible_system | lower }}'
+vcluster_arch: '{{ vcluster_arch_map[ansible_architecture] }}'
 vcluster_platform: '{{ vcluster_os }}-{{ vcluster_arch }}'
 vcluster_url: '{{ vcluster_mirror }}/v{{ vcluster_ver }}/vcluster-{{ vcluster_platform }}{{ vcluster_dotexe | default("") }}'
 vcluster_checksum: '{{ vcluster_checksums[vcluster_ver][vcluster_platform] }}'
