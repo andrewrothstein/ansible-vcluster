@@ -8,25 +8,37 @@ MIRROR=https://github.com/loft-sh/vcluster/releases/download
 dl()
 {
     local ver=$1
-    local os=$2
-    local arch=$3
-    local dotexe=${4:-""}
+    local lhashes=$2
+    local os=$3
+    local arch=$4
+    local dotexe=${5:-""}
     local platform="${os}-${arch}"
-    local url=$MIRROR/v${ver}/vcluster-${platform}${dotexe}.sha256
+    local file="vcluster-${platform}${dotexe}"
+    local url="${MIRROR}/v${ver}/${file}"
     printf "    # %s\n" $url
-    printf "    %s: sha256:%s\n" $platform $(curl -sSLf $url)
+    printf "    %s: sha256:%s\n" $platform $(fgrep $file $lhashes | awk '{ print $1 }')
 }
 
 dl_ver() {
     local ver=$1
+
+    local lhashes="${DIR}/vcluster-checksums-${ver}.txt"
+
+    # https://github.com/loft-sh/vcluster/releases/download/v0.15.4/checksums.txt
+    local url="${MIRROR}/v${ver}/checksums.txt"
+
+    if [ ! -e "${lhashes}" ];
+    then
+        curl -sSLf -o $lhashes $url
+    fi
+
+    printf "  # %s\n" $url
     printf "  '%s':\n" $ver
-    dl $ver darwin amd64
-    dl $ver darwin arm64
-    dl $ver linux amd64
-    dl $ver linux arm64
-    dl $ver linux 386
-    dl $ver windows amd64 .exe
-    dl $ver windows 386 .exe
+    dl $ver $lhashes darwin amd64
+    dl $ver $lhashes darwin arm64
+    dl $ver $lhashes linux amd64
+    dl $ver $lhashes linux arm64
+    dl $ver $lhashes windows amd64 .exe
 }
 
-dl_ver ${1:-0.15.2}
+dl_ver ${1:-0.15.5}
