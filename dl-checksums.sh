@@ -16,7 +16,7 @@ dl()
     local file="vcluster-${platform}${dotexe}"
     local url="${MIRROR}/v${ver}/${file}"
     printf "    # %s\n" $url
-    printf "    %s: sha256:%s\n" $platform $(fgrep $file $lhashes | awk '{ print $1 }')
+    printf "    %s: sha256:%s\n" $platform $(egrep -e "${file}\$" $lhashes | awk '{ print $1 }')
 }
 
 dl_ver() {
@@ -41,4 +41,4 @@ dl_ver() {
     dl $ver $lhashes windows amd64 .exe
 }
 
-dl_ver ${1:-0.15.7}
+dl_ver ${1:-0.16.1}
