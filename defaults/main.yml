@@ -1,6 +1,6 @@
 ---
 # defaults file for vcluster
-vcluster_ver: 0.16.1
+vcluster_ver: 0.16.3
 vcluster_arch_map:
   aarch64: arm64
   arm64: arm64
@@ -143,3 +143,27 @@ vcluster_checksums:
     linux-arm64: sha256:40b285f7a1d5344c6afb602e34db902cf73f7604100db510e84f6d864076cc9b
     # https://github.com/loft-sh/vcluster/releases/download/v0.16.1/vcluster-windows-amd64.exe
     windows-amd64: sha256:6ea462ff56fb596059a82db2e70559837bc156df669f1b9ea1143c302875ecd1
+  # https://github.com/loft-sh/vcluster/releases/download/v0.16.2/checksums.txt
+  '0.16.2':
+    # https://github.com/loft-sh/vcluster/releases/download/v0.16.2/vcluster-darwin-amd64
+    darwin-amd64: sha256:0c5738b9c0b557f282bff19df67bff98cb206b2a9c99f1c10cd56e78122f35e4
+    # https://github.com/loft-sh/vcluster/releases/download/v0.16.2/vcluster-darwin-arm64
+    darwin-arm64: sha256:2cd1ecc9f59c814c5feb33d195f920cb6884117431af8408e678555088d65aaf
+    # https://github.com/loft-sh/vcluster/releases/download/v0.16.2/vcluster-linux-amd64
+    linux-amd64: sha256:b22e5cd71c8d7a8aa372bdabc67a61e6754053700579ebc787b08e1948a7575f
+    # https://github.com/loft-sh/vcluster/releases/download/v0.16.2/vcluster-linux-arm64
+    linux-arm64: sha256:545637897b9c9ea0d20fe11e50c1de9ac20db5c6c11e290db73fa2102973fc3d
+    # https://github.com/loft-sh/vcluster/releases/download/v0.16.2/vcluster-windows-amd64.exe
+    windows-amd64: sha256:424745a310d82ecf650ebceaddf45a42ff7c51d5628f7535059c5142cc6cde33
+  # https://github.com/loft-sh/vcluster/releases/download/v0.16.3/checksums.txt
+  '0.16.3':
+    # https://github.com/loft-sh/vcluster/releases/download/v0.16.3/vcluster-darwin-amd64
+    darwin-amd64: sha256:a9aaa5585b766296ed0122b6f1faab63886aedc8dc92f8846227b9809338392c
+    # https://github.com/loft-sh/vcluster/releases/download/v0.16.3/vcluster-darwin-arm64
+    darwin-arm64: sha256:a3eac54c99fcae0435a06d5546754e5a5cfa322182914e81f91def1a1fd9beb7
+    # https://github.com/loft-sh/vcluster/releases/download/v0.16.3/vcluster-linux-amd64
+    linux-amd64: sha256:ad5e8b909f60db8bb864abb9d31221d6767268437d454bb2cd2c78209fcaf642
+    # https://github.com/loft-sh/vcluster/releases/download/v0.16.3/vcluster-linux-arm64
+    linux-arm64: sha256:1b2279205f7494df3d723ece8e46ea93026083077b53d79c2b1fd56d087f86ed
+    # https://github.com/loft-sh/vcluster/releases/download/v0.16.3/vcluster-windows-amd64.exe
+    windows-amd64: sha256:5c269b8441cc32300927285cbce16a2e166f1003474a212797f41f82f5668cf6
